@@ -25,9 +25,9 @@ OBJ_ACCOUNT = $(BUILD_DIR)/src/AccountData/Account.o
 OBJ_TRANSACTION = $(BUILD_DIR)/src/AccountData/Transaction.o
 
 # Targets
-all: program
+all: myApp
 
-program: $(OBJ_MAIN) $(OBJ_ACCOUNT_DAO_IMPL) $(OBJ_TRANSACTION_DAO_IMPL) $(OBJ_ACCOUNT) $(OBJ_TRANSACTION)
+myApp: $(OBJ_MAIN) $(OBJ_ACCOUNT_DAO_IMPL) $(OBJ_TRANSACTION_DAO_IMPL) $(OBJ_ACCOUNT) $(OBJ_TRANSACTION)
 	$(CC) $(LFLAGS) $^ -o $@
 
 $(OBJ_MAIN): $(MAIN)
@@ -51,4 +51,4 @@ $(OBJ_TRANSACTION): $(TRANSACTION)
 	$(CC) $(CFLAGS) -I $(INCLUDE_DIR) $< -o $@
 
 clean:
-	rm -rf $(BUILD_DIR) program
+	rm -rf $(BUILD_DIR) myApp
